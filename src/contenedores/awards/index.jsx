@@ -15,13 +15,13 @@ export default function Awards() {
         <div className="texto-awards">Nuevas cuentas</div>
         <div className="list-icons">
           <div className="caja-acciones">
-            <img className="icono-caja" src={user} />
+            <img className="icono-caja" src={user} alt='user'/>
             <div className="contenedor-label">
               <div className="label-caja">Agregar cuenta</div>
             </div>
           </div>
           <div className="caja-acciones">
-            <img className="icono-caja" src={up} />
+            <img className="icono-caja" src={up} alt='up'/>
             <div className="contenedor-label">
               <div className="label-caja">Subir archivo</div>
             </div>
@@ -30,7 +30,7 @@ export default function Awards() {
       </div>
       <div className="contenedor-lista-buscador">
         <div className="contenedor-search">
-          <img src={lupa}/>
+          <img src={lupa}  alt='lupa'/>
           <input placeholder="Buscar por nombre o email." className="input-search"/>
         </div>
 

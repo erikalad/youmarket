@@ -113,3 +113,17 @@ background: #FFF;
     display: flex;
     justify-content: center;
 }
+
+.contenedor-awards {
+    display: flex;
+    flex-direction: column;
+    margin: 0% 30% 0% 30%;
+  }
+
+  @media (max-width:1000px) {
+    .contenedor-awards {
+        display: flex;
+        flex-direction: column;
+        margin: 0rem !important
+      }
+}

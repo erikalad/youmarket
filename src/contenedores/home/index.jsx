@@ -22,7 +22,7 @@ export default function Home() {
         <div className="mi-saldo">
           <div className="texto-home">Mi acción: </div>
           <div className="valor-home2">Nombre de acción</div>
-          <img src={flecha} className="valor-home2" />
+          <img src={flecha} className="valor-home2" alt='arrow'/>
         </div>
       </div>
 
@@ -30,25 +30,25 @@ export default function Home() {
         <div className="accion">Acciones</div>
         <div className="contenedor-iconos-acciones">
           <div className="caja-acciones">
-            <img className="icono-caja" src={tranfer} />
+            <img className="icono-caja" src={tranfer} alt='cargar-saldo'/>
             <div className="contenedor-label">
               <div className="label-caja">Cargar Saldo</div>
             </div>
           </div>
           <div className="caja-acciones">
-            <img className="icono-caja" src={gift} />
+            <img className="icono-caja" src={gift} alt='enviar-premio'/>
             <div className="contenedor-label">
               <div className="label-caja">Enviar Premio</div>
             </div>
           </div>
           <div className="caja-acciones">
-            <img className="icono-caja" src={clock} />
+            <img className="icono-caja" src={clock} alt='movimientos'/>
             <div className="contenedor-label">
               <div className="label-caja">Movimientos</div>
             </div>
           </div>
           <div className="caja-acciones">
-            <img className="icono-caja" src={setting} />
+            <img className="icono-caja" src={setting} alt='ajustes'/>
             <div className="contenedor-label">
               <div className="label-caja">Ajustes</div>
             </div>
@@ -62,7 +62,7 @@ export default function Home() {
           <div className="carta-mov">
             <div className="contenedor-flecha-saldo">
               <div className="contenedor-flecha">
-                <img src={flechaArriba} />
+                <img src={flechaArriba} alt='up'/>
               </div>
               <div>Carga de Saldo</div>
             </div>
@@ -75,7 +75,7 @@ export default function Home() {
           <div className="carta-mov">
             <div className="contenedor-flecha-saldo">
               <div className="contenedor-flecha">
-                <img src={flechaAbajo} />
+                <img src={flechaAbajo} alt='down'/>
               </div>
               <div>Envío de Premio</div>
             </div>
@@ -89,7 +89,7 @@ export default function Home() {
           <div className="carta-mov">
             <div className="contenedor-flecha-saldo">
               <div className="contenedor-flecha">
-                <img src={flechaAbajo} />
+                <img src={flechaAbajo} alt='down'/>
               </div>
               <div>Envío de Premio</div>
             </div>
@@ -103,7 +103,7 @@ export default function Home() {
           <div className="carta-mov">
             <div className="contenedor-flecha-saldo">
               <div className="contenedor-flecha">
-                <img src={flechaAbajo} />
+                <img src={flechaAbajo} alt='down'/>
               </div>
               <div>Envío de Premio</div>
             </div>
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="carta-mov">
             <div className="contenedor-flecha-saldo">
               <div className="contenedor-flecha">
-                <img src={flechaArriba} />
+                <img src={flechaArriba} alt='up'/>
               </div>
               <div>Carga de Saldo</div>
             </div>
