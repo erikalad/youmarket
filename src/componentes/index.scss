@@ -1,0 +1,18 @@
+
+@import './../index.scss';
+
+.navbar{
+    background-color: $primary-color !important;
+    display: flex;
+    height: 5rem;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-text{
+    color:$white-color !important;
+    // width: 26.75rem;
+    height: 3.125rem;
+}
