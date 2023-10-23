@@ -1,0 +1,175 @@
+/** @format */
+
+@import "./../../index.scss";
+
+.contenedor-datos {
+  display: flex;
+  flex-direction: column;
+  height: 10rem;
+  justify-content: center;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+  background: $background-color;
+  margin: 1rem;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  background-color: $white-color;
+}
+
+.contenedor-home {
+  display: flex;
+  flex-direction: column;
+  margin: 0% 30% 0% 30%;
+}
+
+.mi-saldo {
+  display: flex;
+  height: 4rem;
+  justify-content: start;
+  padding: 0rem 2rem 0rem 2rem;
+  align-items: center;
+  gap: 0.875rem;
+  flex-shrink: 0;
+}
+
+.contenedor-acciones {
+  height: 16rem;
+}
+
+.contenedor-iconos-acciones {
+  display: flex;
+  padding-bottom: 0px;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin: 0.3rem;
+}
+
+.texto-home {
+  text-align: center;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.accion {
+  text-align: start;
+  margin-left: 1rem;
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.ultmov{
+    text-align: start;
+    font-size: 1rem;
+    font-weight: 700; 
+}
+
+.valor-home {
+  text-align: center;
+  font-size: 1.5rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.valor-home2 {
+  text-align: center;
+  margin-right: 1rem;
+  font-size: 1rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.contenedor-acciones {
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0px;
+  align-items: flex-start;
+}
+
+.caja-acciones {
+  display: flex;
+  height: 6.25rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  border-radius: 0.625rem;
+}
+
+.icono-caja {
+  width: 6.25rem;
+  height: 5rem;
+  padding: 1.25rem 1.75rem 1.25rem 1.6875rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.label-caja {
+  color: #ff7500;
+  text-align: center;
+  font-size: 0.75rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  text-decoration-line: underline;
+}
+
+.contenedor-label {
+  display: flex;
+  height: 1.25rem;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.contenedor-ultimos-mov {
+  height: 25rem;
+  padding: 1rem;
+}
+
+.carta-mov{
+    border-bottom: 1px solid #C4C4C4;
+    display: flex;
+    height: 4.375rem;
+    padding: 0rem 1rem 0rem 1rem;
+    justify-content: space-between;
+}
+
+.contenedor-flecha{
+    display: flex;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0.3125rem 0.625rem;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0.625rem;
+    background: #E5E5E5;
+    flex-shrink: 0;
+}
+
+.contenedor-flecha-saldo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap:1rem
+}
+
+.contenedor-importe-fecha{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+@media (max-width:1000px) {
+    .contenedor-home {
+        display: flex;
+        flex-direction: column;
+        margin: 0rem !important
+      }
+}

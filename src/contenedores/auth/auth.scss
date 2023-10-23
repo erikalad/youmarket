@@ -1,77 +1,46 @@
-@import './../../index.scss';
+/** @format */
 
+@import "./../../index.scss";
 
-.contenedor-auth{
-display: flex;
-// width: 26.75rem;
-height: 41.3125rem;
-padding: 6rem 1.5rem 5.9375rem 1.4375rem;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-flex-shrink: 0;
+.contenedor-auth {
+  display: flex;
+  height: 42rem;
+  padding: 6rem 1.5rem 5rem 1.4rem;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  margin: 0% 30% 0% 30%;
 }
 
-.carta-auth{
-    display: flex;
-width: 23.8125rem;
-height: 29.375rem;
-padding: 4.8125rem 0rem 10.625rem 0rem;
-flex-direction: column;
-align-items: center;
-gap: 2.6875rem;
-flex-shrink: 0;
+.carta-auth {
+  display: flex;
+  width: 23rem;
+  height: 29rem;
+  padding: 4rem 0rem 4rem 0rem;
+  flex-direction: column;
+  align-items: center;
+  gap: 2.6875rem;
+  flex-shrink: 0;
+  justify-content: center;
 }
 
-.boton-primario{
-display: flex;
-width: 17.5rem;
-height: 4.0625rem;
-padding: 0rem 1.1875rem;
-justify-content: center;
-align-items: center;
-flex-shrink: 0;
-border-radius: 22.5rem;
-background: $primary-color;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-color: $white-color !important;
-border:none;
-text-align: center;
-font-family: $font-family-primary;
-font-size: 1.3125rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-transform: uppercase;
+.input {
+  width: 23rem;
+  height: 2.5rem;
+  flex-shrink: 0;
+  text-align: center;
+  font-size: 25px;
+  color: $color;
+  border: none;
+  border-bottom: 1px solid #000;
+  background-color: $background-color;
 }
 
-.boton-primario-disabled{
-border-radius: 22.5rem;
-background: $disabled-color;
-box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
-}
-
-.input{
-    width: 23rem;
-height: 2.75rem;
-flex-shrink: 0;
-text-align: center;
-font-size: 25px;
-color:$color;
-    border:none;
-    border-bottom: 1px solid #000;
-}
-
-.message{
-    display: flex;
-    padding: 3.375rem 6.6875rem 3.3125rem 6.6875rem;
-    justify-content: center;
-    align-items: center;
-    flex: 1 0 0;
-    align-self: stretch;
-}
-
-.logo{
-    width: 13rem;
-height: 4.875rem;
+@media (max-width:1000px) {
+  .contenedor-auth {
+      display: flex;
+      flex-direction: column;
+      margin: 0rem !important
+    }
 }
