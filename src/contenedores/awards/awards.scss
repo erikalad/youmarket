@@ -1,0 +1,108 @@
+@import "./../../index.scss";
+
+.contenedor-agregar{
+    display: flex;
+    padding: 0.8125rem 0.75rem 0.9375rem 0.625rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.texto-awards{
+text-align: center;
+font-size: 1rem;
+font-style: normal;
+font-weight: 700;
+line-height: normal;
+}
+
+.list-icons{
+    display: flex;
+height: 6.25rem;
+padding-right: 0px;
+align-items: flex-start;
+}
+
+.contenedor-lista-buscador{
+    display: flex;
+    flex-direction: column;
+height: 43.5rem;
+}
+
+.contenedor-search{
+display: flex;
+margin:0.5rem;
+height: 2.5rem;
+padding: 0.6rem;
+align-items: flex-end;
+gap: 2.25rem;
+flex-shrink: 0;
+border-radius: 0.625rem;
+background: #E5E5E5;
+}
+
+.input-search{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    border:none;
+    background: #E5E5E5;
+    align-self: center;
+}
+
+.contenedor-lista{
+    display: inline-flex;
+    padding: 0.75rem;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-start;
+}
+
+.titulo-cuentas{
+color: rgba(0, 0, 0, 0.50);
+text-align: center;
+font-size: 0.875rem;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+}
+
+.contenedor-listas-cartas{
+    display: flex;
+flex-direction: column;
+align-items: flex-start;
+width: 100%;
+justify-content: space-between;
+}
+
+.icono-cuenta{
+    display: flex;
+width: 3.125rem;
+height: 3.125rem;
+padding: 1.125rem 0rem 1.0625rem 0rem;
+justify-content: center;
+align-items: center;
+flex-shrink: 0;
+border-radius: 22.5rem;
+background: #FFF;
+}
+
+.cuenta{
+    display: flex;
+    justify-content: space-between;
+    align-self: center;
+    align-items: center;
+    gap:1rem;
+    width: 100%;
+    padding-top:2rem
+}
+
+.icono-cuenta-email{
+    display: flex;
+    gap:1rem
+}
+
+.contenedor-borrar-seleccionar{
+    display: flex;
+    gap:1rem
+}
