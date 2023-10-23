@@ -67,14 +67,16 @@ font-weight: 500;
 line-height: normal;
 }
 
-.contenedor-listas-cartas{
+.contenedor-listas-cartas {
     display: flex;
-flex-direction: column;
-align-items: flex-start;
-width: 100%;
-justify-content: space-between;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    max-height: 30rem;
+    overflow-y: auto;
 }
-
 .icono-cuenta{
     display: flex;
 width: 3.125rem;
@@ -105,4 +107,9 @@ background: #FFF;
 .contenedor-borrar-seleccionar{
     display: flex;
     gap:1rem
+}
+
+.contenedor-boton-cont{
+    display: flex;
+    justify-content: center;
 }

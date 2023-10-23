@@ -136,7 +136,9 @@ export default function Awards() {
 
 
         </div>
-        <div className="contenedor-boton-cont"></div>
+        <div className="contenedor-boton-cont">
+        <button className='boton-primario-disabled'>CONTINUAR</button>
+        </div>
       </div>
     </div>
   );
