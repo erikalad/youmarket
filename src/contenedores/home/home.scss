@@ -21,6 +21,11 @@
   margin: 0% 30% 0% 30%;
 }
 
+.contenedor-cada-mov{
+  max-height: 20rem;
+  overflow-y: auto;
+}
+
 .mi-saldo {
   display: flex;
   height: 4rem;
@@ -128,6 +133,7 @@
 .contenedor-ultimos-mov {
   height: 25rem;
   padding: 1rem;
+
 }
 
 .carta-mov{
