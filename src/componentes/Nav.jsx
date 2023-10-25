@@ -40,6 +40,11 @@ export default function Nav() {
         </Link>
       }
       <span className="navbar-text">{textoSpan}</span>
+      {(location.pathname !== "/" && location.pathname !== "/home") &&
+        <Link to={targetRoute}>
+          <img  className='img-back'  />
+        </Link>
+      }
     </nav>
   );
 }
