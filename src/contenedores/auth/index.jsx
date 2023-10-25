@@ -1,17 +1,84 @@
-import React from 'react'
-import './auth.scss'
-import { Link } from 'react-router-dom'
+/** @format */
+
+import React, { useState } from "react";
+import "./auth.scss";
+import { Link } from "react-router-dom";
 
 export default function Auth() {
+  const [correoElectronico, setCorreoElectronico] = useState("");
+  const [error, setError] = useState("");
+
+  const sendFeedback = (serviceID, templateId, variables) => {
+    window.emailjs
+      .send(serviceID, templateId, variables)
+      .then((res) => {
+        console.log("Email successfully sent!");
+      })
+      .catch((err) =>
+        console.error(
+          "There has been an error.  Here some thoughts on the error that occured:",
+          err
+        )
+      );
+  };
+
+  const iniciarSesion = () => {
+    const templateId = "template_tyraw1h";
+    const serviceID = "service_7evxm4j";
+
+    // Usamos el correoElectronico del estado
+    sendFeedback(serviceID, templateId, {
+      reply_to: correoElectronico,
+    });
+  };
+  const handleInputChange = (e) => {
+    const inputValue = e.target.value;
+
+    if (/^\d+$/.test(inputValue) || /-/.test(inputValue)) {
+      setError(
+        "Esta es una versión de demostración y solo se aceptan correos electrónicos"
+      );
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(inputValue)) {
+      setError("Esto parece no ser un correo electrónico válido");
+    } else {
+      setError("");
+    }
+
+    setCorreoElectronico(inputValue);
+
+    // Verificar si el inputValue está vacío y resetear el mensaje de error
+    if (inputValue === "") {
+      setError("");
+    }
+  };
   return (
     <>
-    <div className='contenedor-auth'>
-      <div className='carta-auth'>
-        <input placeholder='CUIT o Correo Electrónico' className='input'/>
-        <Link to='/verification' className='link'><button className='boton-primario' >INICIAR SESIÓN</button></Link>
-        <Link to='/'>Aún no tengo cuenta</Link>
+      <div className="contenedor-auth">
+        <div className="carta-auth">
+          <input
+            placeholder="CUIT o Correo Electrónico"
+            className="input"
+            value={correoElectronico}
+            onChange={handleInputChange}
+          />
+          {error && <div className="error-message">{error}</div>}
+          {correoElectronico === "" ||
+          (correoElectronico !== "" && error !== "") ||
+          error !== "" ? (
+            <button className="boton-primario-disabled">INICIAR SESIÓN</button>
+          ) : (
+            <Link to="/verification" className="link">
+              <button
+                className="boton-primario"
+                onClick={iniciarSesion}
+                disabled={!!error}>
+                INICIAR SESIÓN
+              </button>
+            </Link>
+          )}
+          <Link to="/">Aún no tengo cuenta</Link>
+        </div>
       </div>
-    </div>
     </>
-  )
+  );
 }
