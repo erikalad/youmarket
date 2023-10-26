@@ -10,14 +10,16 @@ import gift from "./../../imagenes/gift-solid 1.svg";
 import flechaArriba from "./../../imagenes/arrow-up-solid 1.svg";
 import flechaAbajo from "./../../imagenes/arrow-down-solid 1.svg";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Home() {
+  const monto = useSelector(state=> state.monto)
   return (
     <div className="contenedor-home">
       <div className="contenedor-datos">
         <div className="mi-saldo">
           <div className="texto-home">Mi Saldo</div>
-          <div className="valor-home">$10.000,00</div>
+          <div className="valor-home">${monto},00</div>
         </div>
 
         <div className="mi-saldo">

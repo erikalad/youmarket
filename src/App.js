@@ -7,6 +7,7 @@ import Verification from "./contenedores/verification";
 import Acredit from "./contenedores/acredit";
 import Home from "./contenedores/home";
 import Awards from "./contenedores/awards";
+import Products from "./contenedores/products";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <Route path="/acredit" element={<Acredit />} />
         <Route path="/home" element={<Home />} />
         <Route path="/awards" element={<Awards />} />
+        <Route path="/products" element={<Products />} />
       </Routes>
     </div>
   );

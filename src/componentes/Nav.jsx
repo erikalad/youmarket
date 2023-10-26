@@ -27,6 +27,10 @@ export default function Nav() {
       textoSpan = '¿Cuánto querés ingresar?';
       targetRoute = '/home';
       break;
+      case '/products':
+        textoSpan = '¡Elegí los premios!';
+        targetRoute = '/home';
+        break;
     default:
       textoSpan = '';
       targetRoute = '/';

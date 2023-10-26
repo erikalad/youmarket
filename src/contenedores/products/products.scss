@@ -1,0 +1,17 @@
+@import "./../../index.scss";
+
+.contenedor-productos{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin:1rem;
+    align-items: center;
+
+}
+
+.ant-card .ant-card-actions li{
+ display: flex;
+ flex-direction: column;
+ justify-content: center;
+ align-items: center;
+}
