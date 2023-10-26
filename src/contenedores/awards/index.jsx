@@ -4,15 +4,14 @@ import React, { useEffect, useState } from "react";
 import user from './../../imagenes/user-plus-solid 2.svg'
 import up from './../../imagenes/upload-solid 1.svg'
 import lupa from './../../imagenes/magnifying-glass-solid 1.svg'
-import {RiDeleteBin5Line} from 'react-icons/ri'
-import { useDispatch } from 'react-redux';
-import { cargarProductos } from './../../redux/actions';
+import { useDispatch, useSelector } from 'react-redux';
+import { cargarProductos, usuarioSeleccionado } from './../../redux/actions';
 import './awards.scss'
 import { Radio,Modal } from "antd";
 import { Link } from "react-router-dom";
 
 export default function Awards() {
-
+  const usuarios = useSelector(state=>state.usuarios)
   const [modalVisible, setModalVisible] = useState(false);
   const [usuariosSeleccionado, setUsuariosSeleccionado] = useState("");
   const dispatch = useDispatch();
@@ -24,48 +23,6 @@ export default function Awards() {
   const onChange = (e) => {
     setUsuariosSeleccionado(e.target.value);
   };
-  const usuarios = [
-    {
-      icono: "C1",
-      nombre: "Cuenta 1",
-      email: "cuenta1@test.com.ar"
-    },
-    {
-      icono: "C2",
-      nombre: "Cuenta 2",
-      email: "cuenta2@test.com.ar"
-    },
-    {
-      icono: "C3",
-      nombre: "Cuenta 3",
-      email: "cuenta3@test.com.ar"
-    },
-    {
-      icono: "C4",
-      nombre: "Cuenta 4",
-      email: "cuenta4@test.com.ar"
-    },
-    {
-      icono: "C5",
-      nombre: "Cuenta 5",
-      email: "cuenta5@test.com.ar"
-    },
-    {
-      icono: "C6",
-      nombre: "Cuenta 6",
-      email: "cuenta6@test.com.ar"
-    },
-    {
-      icono: "C7",
-      nombre: "Cuenta 7",
-      email: "cuenta7@test.com.ar"
-    },
-    {
-      icono: "C8",
-      nombre: "Cuenta 8",
-      email: "cuenta8@test.com.ar"
-    }
-  ];  
 
   
 
@@ -118,7 +75,7 @@ export default function Awards() {
 
         </div>
         <div className="contenedor-boton-cont">
-        <button className={usuariosSeleccionado.length > 0 ? 'boton-primario' : 'boton-primario-disabled'} onClick={() => setModalVisible(true)} >CONTINUAR</button>
+        <button className={usuariosSeleccionado ? 'boton-primario' : 'boton-primario-disabled'} onClick={() => setModalVisible(true)} >CONTINUAR</button>
         </div>
 
         <Modal
@@ -127,6 +84,7 @@ export default function Awards() {
         okText= {<Link to="/products" className='link'>Confirmar selección</Link>}
         onOk={() => {
           setModalVisible(false);
+          dispatch(usuarioSeleccionado(usuariosSeleccionado.email))
         }}
         cancelText= 'Cancelar'
         onCancel={() => setModalVisible(false)}

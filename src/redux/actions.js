@@ -8,11 +8,34 @@ export const cargarSaldo = (monto) => {
   };
 };
 
+export const canjearProducto = (monto) => {
+  return{
+    type: "ACTUALIZAR_MONTO",
+    payload: monto
+  }
+}
+
+export const usuarioSeleccionado = (email) => {
+  console.log(email)
+  return{
+    type: "EMAIL_USUARIO_CANJE",
+    payload: email
+  }
+}
+
+export const movimientoNuevo = (movimiento) => {
+  console.log(movimiento)
+  return{
+    type: "MOVIMIENTO",
+    payload: movimiento
+  }
+}
+
+
 export const cargarProductos = () => {
   return (dispatch) => {
     axios.get('https://fakestoreapi.com/products')
       .then(response => {
-        console.log(response.data)
         dispatch({
           type: 'CARGAR_PRODUCTOS',
           payload: response.data

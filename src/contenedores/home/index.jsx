@@ -14,6 +14,7 @@ import { useSelector } from "react-redux";
 
 export default function Home() {
   const monto = useSelector(state=> state.monto)
+  const movimientos = useSelector(state=>state.movimientos)
   return (
     <div className="contenedor-home">
       <div className="contenedor-datos">
@@ -48,12 +49,14 @@ export default function Home() {
             </div>
           </div>
           </Link>
+          <Link to="/movimientos">
           <div className="caja-acciones">
             <img className="icono-caja" src={clock} alt="movimientos" />
             <div className="contenedor-label">
               <div className="label-caja">Movimientos</div>
             </div>
           </div>
+          </Link>
           <div className="caja-acciones">
             <img className="icono-caja" src={setting} alt="ajustes" />
             <div className="contenedor-label">
@@ -63,79 +66,29 @@ export default function Home() {
         </div>
       </div>
 
+      <div>
       <div className="contenedor-ultimos-mov">
         <div className="ultmov">Últimos movimientos</div>
-        <div className="contenedor-cada-mov">
-          <div className="carta-mov">
-            <div className="contenedor-flecha-saldo">
-              <div className="contenedor-flecha">
-                <img src={flechaArriba} alt="up" />
+        <div className="contenedor-cada-mov2">
+          {movimientos.map((movimiento, index) => (
+            <div className="carta-mov" key={index}>
+              <div className="contenedor-flecha-saldo">
+                <div className="contenedor-flecha">
+                  <img src={movimiento.flecha === "flechaAbajo" ? flechaAbajo : flechaArriba } alt={movimiento.tipo} />
+                </div>
+                <div>{movimiento.tipo}</div>
               </div>
-              <div>Carga de Saldo</div>
-            </div>
 
-            <div className="contenedor-importe-fecha">
-              <div>+$10.000,00</div>
-              <div>21/01</div>
-            </div>
-          </div>
-          <div className="carta-mov">
-            <div className="contenedor-flecha-saldo">
-              <div className="contenedor-flecha">
-                <img src={flechaAbajo} alt="down" />
+              <div className="contenedor-importe-fecha">
+                <div>{movimiento.flecha === "flechaArriba" ? '+' : '-'}${movimiento.importe},00</div>
+                <div>{movimiento.fecha}</div>
+
               </div>
-              <div>Envío de Premio</div>
             </div>
-
-            <div className="contenedor-importe-fecha">
-              <div>-$2.500,00</div>
-              <div>19/01</div>
-            </div>
-          </div>
-
-          <div className="carta-mov">
-            <div className="contenedor-flecha-saldo">
-              <div className="contenedor-flecha">
-                <img src={flechaAbajo} alt="down" />
-              </div>
-              <div>Envío de Premio</div>
-            </div>
-
-            <div className="contenedor-importe-fecha">
-              <div>-$2.500,00</div>
-              <div>18/01</div>
-            </div>
-          </div>
-
-          <div className="carta-mov">
-            <div className="contenedor-flecha-saldo">
-              <div className="contenedor-flecha">
-                <img src={flechaAbajo} alt="down" />
-              </div>
-              <div>Envío de Premio</div>
-            </div>
-
-            <div className="contenedor-importe-fecha">
-              <div>-$2.500,00</div>
-              <div>18/01</div>
-            </div>
-          </div>
-
-          <div className="carta-mov">
-            <div className="contenedor-flecha-saldo">
-              <div className="contenedor-flecha">
-                <img src={flechaArriba} alt="up" />
-              </div>
-              <div>Carga de Saldo</div>
-            </div>
-
-            <div className="contenedor-importe-fecha">
-              <div>+$7.500,00</div>
-              <div>17/01</div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
+    </div>
     </div>
   );
 }

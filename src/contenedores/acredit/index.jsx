@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux'; // Importa useDispatch
 import { cargarSaldo } from './../../redux/actions'; // Importa la acción cargarSaldo
 import { Link } from 'react-router-dom';
 const ReachableContext = createContext(null);
-const UnreachableContext = createContext(null);
+
 
 export default function Acredit() {
   const [monto, setMonto] = useState('');
@@ -44,7 +44,7 @@ export default function Acredit() {
         />
       </div>
       <button className={monto !== "" ? 'boton-primario' : "boton-primario-disabled"}       onClick={async () => {
-            const confirmed = await modal.confirm(config);
+             await modal.confirm(config);
           }}>CONTINUAR</button>
   
       {contextHolder}

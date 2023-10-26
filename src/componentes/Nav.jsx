@@ -31,6 +31,10 @@ export default function Nav() {
         textoSpan = '¡Elegí los premios!';
         targetRoute = '/home';
         break;
+        case '/movimientos':
+          textoSpan = 'Tus movimientos';
+          targetRoute = '/home';
+          break;
     default:
       textoSpan = '';
       targetRoute = '/';
@@ -46,7 +50,7 @@ export default function Nav() {
       <span className="navbar-text">{textoSpan}</span>
       {(location.pathname !== "/" && location.pathname !== "/home") &&
         <Link to={targetRoute}>
-          <img  className='img-back'  />
+          <div  className='img-back' />
         </Link>
       }
     </nav>

@@ -8,6 +8,7 @@ import Acredit from "./contenedores/acredit";
 import Home from "./contenedores/home";
 import Awards from "./contenedores/awards";
 import Products from "./contenedores/products";
+import Movimientos from "./contenedores/movimientos";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/home" element={<Home />} />
         <Route path="/awards" element={<Awards />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/movimientos" element={<Movimientos />} />
       </Routes>
     </div>
   );
