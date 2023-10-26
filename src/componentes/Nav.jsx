@@ -35,6 +35,10 @@ export default function Nav() {
           textoSpan = 'Tus movimientos';
           targetRoute = '/home';
           break;
+          case '/comprobante':
+            textoSpan = 'Tu comprobante';
+            targetRoute = '/movimientos';
+            break;
     default:
       textoSpan = '';
       targetRoute = '/';

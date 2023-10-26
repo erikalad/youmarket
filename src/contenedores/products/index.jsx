@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "./products.scss";
-import { Tooltip, Modal } from "antd";
+import { Tooltip, Modal, Select } from "antd";
 import { canjearProducto, movimientoNuevo } from "../../redux/actions";
 
 export default function Products() {
@@ -12,6 +12,13 @@ export default function Products() {
   const [modal, contextHolder] = Modal.useModal();
   const [modalVisible, setModalVisible] = useState(false);
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [orden, setOrden] = useState("");
+
+  const handleChangeOrden = (value) => {
+    setOrden(value);
+  };
+
+
 
   const handleCanjear = (product) => {
     setSelectedProduct(product);
@@ -26,6 +33,7 @@ export default function Products() {
     setModalVisible(false);
     const today = new Date();
     const formattedDate = `${today.getDate()}/${today.getMonth() + 1}`;
+
     const mov =  {
       tipo: 'Envío de Premio',
       importe: (selectedProduct.price * 100),
@@ -35,6 +43,7 @@ export default function Products() {
     }
     dispatch(movimientoNuevo(mov))
     countDown()
+    
   };
 
   const handleCancelCanje = () => {
@@ -67,9 +76,39 @@ export default function Products() {
     }, secondsToGo * 1000);
   };
 
+
+  let productosFiltrados = [...products]; 
+
+  if (orden === "menorMayor") {
+    productosFiltrados.sort((a, b) => a.price - b.price); 
+  } else if (orden === "mayorMenor") {
+    productosFiltrados.sort((a, b) => b.price - a.price); 
+  }
+
   return (
-    <div className="product-container">
-      {products.map((product) => (
+    <div>
+       <div className="produtos-titulo">Productos</div>
+  
+    <Select
+        placeholder="Ordenar por precio"
+        style={{
+          width: "90%",
+          margin: "1rem",
+        }}
+        onChange={handleChangeOrden}
+        options={[
+          {
+            value: "menorMayor",
+            label: "Menor a Mayor",
+          },
+          {
+            value: "mayorMenor",
+            label: "Mayor a Menor",
+          },
+        ]}
+      />
+       <div className="product-container">
+      {productosFiltrados.map((product) => (
         <div className="product-card" key={product.id}>
           <img src={product.image} alt={product.title} />
           <div className="card-details">
@@ -97,6 +136,7 @@ export default function Products() {
       <Modal
         title="Confirmar Canje"
         open={modalVisible}
+        okText="Confirmar"
         onOk={handleConfirmCanje}
         onCancel={handleCancelCanje}
       >
@@ -109,6 +149,7 @@ export default function Products() {
 
   
     
+    </div>
     </div>
   );
 }

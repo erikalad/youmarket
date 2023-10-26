@@ -3,8 +3,9 @@ import './acredit.scss'
 import { InputNumber } from 'antd';
 import  { createContext } from 'react';
 import {Modal } from 'antd';
-import { useDispatch } from 'react-redux'; // Importa useDispatch
-import { cargarSaldo } from './../../redux/actions'; // Importa la acción cargarSaldo
+import { message } from 'antd';
+import { useDispatch } from 'react-redux'; 
+import { cargarSaldo, movimientoNuevo } from './../../redux/actions';
 import { Link } from 'react-router-dom';
 const ReachableContext = createContext(null);
 
@@ -12,11 +13,36 @@ const ReachableContext = createContext(null);
 export default function Acredit() {
   const [monto, setMonto] = useState('');
   const [modal, contextHolder] = Modal.useModal();
-  const dispatch = useDispatch(); // Crea una instancia de useDispatch
+  const [messageApi, contextHolderMessage] = message.useMessage();
+  const dispatch = useDispatch(); 
+  const info = () => {
+    messageApi.info('Es una aplicación de demostración por lo que el saldo es de prueba');
+  };
 
   const handleInputChange = (value) => {
     setMonto(`$${value}`);
   }
+
+  const enviarSaldo = () =>{
+    dispatch(cargarSaldo(monto))
+    const today = new Date();
+    const formattedDate = `${today.getDate()}/${today.getMonth() + 1}`;
+    const montoNumerico = parseFloat(monto.replace('$', ''));
+    const mov =  {
+      tipo: 'Carga de Saldo',
+      importe: montoNumerico,
+      fecha: formattedDate,
+      flecha: "flechaArriba",
+      email:''
+    }
+    dispatch(movimientoNuevo(mov))
+  }
+
+  const handleClick = async () => {
+    info();
+    await modal.confirm(config);
+}
+
   const config = {
     title: 'Revisá si está todo bien',
     content: (
@@ -24,9 +50,9 @@ export default function Acredit() {
         <ReachableContext.Consumer>{(name) => `Vas a ingresar ${monto}`}</ReachableContext.Consumer>
       </>
     ),
-    okText: <Link to="/home" className='link'>Ingresar dinero</Link>, // Texto del botón OK
-    cancelText: 'Cancelar', // Texto del botón Cancelar
-    onOk: () => dispatch(cargarSaldo(monto)) // Dispara la acción cargarSaldo al hacer clic en OK
+    okText: <Link to="/home" className='link'>Ingresar dinero</Link>, 
+    cancelText: 'Cancelar', 
+    onOk: () => enviarSaldo() 
   };
 
   return (
@@ -43,11 +69,15 @@ export default function Acredit() {
           onChange={handleInputChange}
         />
       </div>
-      <button className={monto !== "" ? 'boton-primario' : "boton-primario-disabled"}       onClick={async () => {
-             await modal.confirm(config);
-          }}>CONTINUAR</button>
+      <button
+          className={monto !== "" ? 'boton-primario' : 'boton-primario-disabled'}
+          onClick={handleClick}
+        >
+          CONTINUAR
+        </button>
   
       {contextHolder}
+      {contextHolderMessage}
 
     </div>
   )

@@ -2,13 +2,16 @@ import React, { useState } from 'react';
 import './movimientos.scss';
 import flechaArriba from "./../../imagenes/arrow-up-solid 1.svg";
 import flechaAbajo from "./../../imagenes/arrow-down-solid 1.svg";
-import { useSelector } from 'react-redux';
-import { Select } from 'antd';
+import { useDispatch, useSelector } from 'react-redux';
+import {  Select, Tooltip } from 'antd';
+import {FaFileDownload} from 'react-icons/fa'
+import { Link } from 'react-router-dom';
+import { comprobante } from '../../redux/actions';
 
 export default function Movimientos() {
     const movimientos = useSelector(state => state.movimientos);
     const [filtro, setFiltro] = useState('Todos los movimientos'); // Estado para el filtro
-  
+    const dispatch = useDispatch()
     const handleChange = (value) => {
       setFiltro(value); // Actualizar el estado del filtro al seleccionar una opción
     };
@@ -16,6 +19,7 @@ export default function Movimientos() {
     const movimientosFiltrados = filtro === 'Todos los movimientos'
       ? movimientos
       : movimientos.filter(movimiento => movimiento.tipo === filtro);
+
 
 
   return (
@@ -64,8 +68,11 @@ export default function Movimientos() {
               <div className="contenedor-importe-fecha">
                 <div>{movimiento.flecha === "flechaArriba" ? '+' : '-'}${movimiento.importe},00</div>
                 <div>{movimiento.fecha}</div>
-
+           
               </div>
+              <Tooltip title='Ver comprobante'>
+              <Link className='botonDescargar' to='/comprobante' onClick={()=>dispatch(comprobante(movimiento))}><FaFileDownload/></Link>
+              </Tooltip>
             </div>
           ))}
         </div>

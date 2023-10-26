@@ -9,6 +9,7 @@ import Home from "./contenedores/home";
 import Awards from "./contenedores/awards";
 import Products from "./contenedores/products";
 import Movimientos from "./contenedores/movimientos";
+import DescargarPDF from "./contenedores/descargarPDF";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/awards" element={<Awards />} />
         <Route path="/products" element={<Products />} />
         <Route path="/movimientos" element={<Movimientos />} />
+        <Route path="/comprobante" element={<DescargarPDF />} />
       </Routes>
     </div>
   );

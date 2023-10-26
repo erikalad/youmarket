@@ -70,7 +70,7 @@ export default function Home() {
       <div className="contenedor-ultimos-mov">
         <div className="ultmov">Últimos movimientos</div>
         <div className="contenedor-cada-mov2">
-          {movimientos.map((movimiento, index) => (
+          {movimientos.slice(0,5).map((movimiento, index) => (
             <div className="carta-mov" key={index}>
               <div className="contenedor-flecha-saldo">
                 <div className="contenedor-flecha">

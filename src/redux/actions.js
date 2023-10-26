@@ -8,6 +8,14 @@ export const cargarSaldo = (monto) => {
   };
 };
 
+export const agregarUsuario = (usuario) => {
+  console.log(usuario)
+  return {
+    type: 'AGREGAR_USUARIO',
+    payload: usuario
+  };
+};
+
 export const canjearProducto = (monto) => {
   return{
     type: "ACTUALIZAR_MONTO",
@@ -15,8 +23,20 @@ export const canjearProducto = (monto) => {
   }
 }
 
+export const loadingAction = () => {
+  return{
+    type: "LOADING",
+  }
+}
+
+export const comprobante = (movimiento) => {
+  return{
+    type: "COMPROBANTE",
+    payload: movimiento
+  }
+}
+
 export const usuarioSeleccionado = (email) => {
-  console.log(email)
   return{
     type: "EMAIL_USUARIO_CANJE",
     payload: email
@@ -24,7 +44,6 @@ export const usuarioSeleccionado = (email) => {
 }
 
 export const movimientoNuevo = (movimiento) => {
-  console.log(movimiento)
   return{
     type: "MOVIMIENTO",
     payload: movimiento

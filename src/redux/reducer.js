@@ -2,7 +2,7 @@ const initialState = {
     monto: Number(localStorage.getItem('monto')) || 10000,
     productos:[],
     usuarioCanje: null,
-    usuarios:[
+    usuarios: JSON.parse(localStorage.getItem('usuarios')) ||[
       {
         icono: "C1",
         nombre: "Cuenta 1",
@@ -80,7 +80,9 @@ const initialState = {
             flecha: "flechaArriba",
             email:''
           },
-      ]
+      ],
+      loading: true,
+      movimiento: null
    }
    
    const rootReducer = (state = initialState, action) => {
@@ -118,6 +120,28 @@ const initialState = {
             ...state,
             movimientos: nuevosMovimientos
           }
+          case "AGREGAR_USUARIO":
+            const nuevosUsuarios = [...state.usuarios, action.payload];
+            localStorage.setItem('usuarios', JSON.stringify(nuevosUsuarios));
+          
+            return{
+              ...state,
+              loading: false,
+              usuarios: nuevosUsuarios
+            }
+
+        case 'LOADING':
+          return{
+            ...state,
+            loading:true
+          }
+        case "COMPROBANTE":
+          return{
+            ...state,
+            movimiento:action.payload
+          }
+         
+
    
            default: return { ...state }
        }

@@ -8,6 +8,19 @@
     align-items: flex-start;
 }
 
+.empty{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.ant-empty .ant-empty-description{
+    font-family: $font-family-primary !important;
+    color: $disabled-color !important
+}
+
 .texto-awards{
 text-align: center;
 font-size: 1rem;
