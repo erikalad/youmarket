@@ -8,6 +8,10 @@
     align-items: flex-start;
 }
 
+.icono-caja{
+    cursor: pointer;
+}
+
 .empty{
     display: flex;
     flex-direction: column;
@@ -133,6 +137,12 @@ background: #FFF;
     margin: 0% 30% 0% 30%;
   }
 
+  .contenedorModalSubirArchivo{
+    display: flex;
+    flex-direction: column;
+    gap:2rem
+  }
+
   @media (max-width:1000px) {
     .contenedor-awards {
         display: flex;
@@ -156,3 +166,4 @@ background: #FFF;
     text-decoration: none;
     color:white !important
   }
+

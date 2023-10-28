@@ -1,76 +1,84 @@
-import axios from 'axios'
-  
+/** @format */
+
+import axios from "axios";
+
 export const cargarSaldo = (monto) => {
-  const montoNumerico = parseFloat(monto.replace('$', ''));
+  const montoNumerico = parseFloat(monto.replace("$", ""));
   return {
-    type: 'CARGAR_SALDO',
-    payload: montoNumerico
+    type: "CARGAR_SALDO",
+    payload: montoNumerico,
   };
 };
 
 export const agregarUsuario = (usuario) => {
   return {
-    type: 'AGREGAR_USUARIO',
-    payload: usuario
+    type: "AGREGAR_USUARIO",
+    payload: usuario,
+  };
+};
+
+export const agregarUsuarios = (usuarios) => {
+  return {
+    type: "AGREGAR_USUARIOS",
+    payload: usuarios,
   };
 };
 
 export const canjearProducto = (monto) => {
-  return{
+  return {
     type: "ACTUALIZAR_MONTO",
-    payload: monto
-  }
-}
+    payload: monto,
+  };
+};
 
 export const loadingAction = () => {
-  return{
+  return {
     type: "LOADING",
-  }
-}
+  };
+};
 
 export const comprobante = (movimiento) => {
-  return{
+  return {
     type: "COMPROBANTE",
-    payload: movimiento
-  }
-}
+    payload: movimiento,
+  };
+};
 
 export const usuarioSeleccionado = (email) => {
-  return{
+  return {
     type: "EMAIL_USUARIO_CANJE",
-    payload: email
-  }
-}
+    payload: email,
+  };
+};
 
 export const movimientoNuevo = (movimiento) => {
-  return{
+  return {
     type: "MOVIMIENTO",
-    payload: movimiento
-  }
-}
+    payload: movimiento,
+  };
+};
 
 export const correoAuth = (email) => {
-  return{
+  return {
     type: "AUTH",
-    payload: email
-  }
-}
-
-
+    payload: email,
+  };
+};
 
 export const cargarProductos = () => {
   return (dispatch) => {
-    axios.get('https://fakestoreapi.com/products')
-      .then(response => {
+    axios
+      .get("https://fakestoreapi.com/products")
+      .then((response) => {
         dispatch({
-          type: 'CARGAR_PRODUCTOS',
-          payload: response.data
+          type: "CARGAR_PRODUCTOS",
+          payload: response.data,
         });
       })
-      .catch(error => {
+      .catch((error) => {
         dispatch({
-          type: 'ERROR_AL_CARGAR_PRODUCTOS',
-          payload: error
+          type: "ERROR_AL_CARGAR_PRODUCTOS",
+          payload: error,
         });
       });
   };

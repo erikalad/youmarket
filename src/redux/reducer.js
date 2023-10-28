@@ -147,11 +147,17 @@ const rootReducer = (state = initialState, action) => {
     case "AGREGAR_USUARIO":
       const nuevosUsuarios = [...state.usuarios, action.payload];
       localStorage.setItem("usuarios", JSON.stringify(nuevosUsuarios));
-
       return {
         ...state,
         loading: false,
         usuarios: nuevosUsuarios,
+      };
+    case "AGREGAR_USUARIOS":
+      const nuevosUsuariosExcel = [...state.usuarios, ...action.payload];
+      localStorage.setItem("usuarios", JSON.stringify(nuevosUsuariosExcel));
+      return {
+        ...state,
+        usuarios: nuevosUsuariosExcel,
       };
 
     case "LOADING":
