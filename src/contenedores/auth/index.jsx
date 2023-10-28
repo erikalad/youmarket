@@ -5,6 +5,7 @@ import "./auth.scss";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { correoAuth } from "../../redux/actions";
+import { Tooltip } from "antd";
 
 export default function Auth() {
   const [correoElectronico, setCorreoElectronico] = useState("");
@@ -74,7 +75,7 @@ export default function Auth() {
               </button>
             </Link>
           )}
-          <Link to="/">Aún no tengo cuenta</Link>
+          <Tooltip title='Estamos trabajando en la creación de nuevas cuentas'>Aún no tengo cuenta</Tooltip> 
         </div>
       </div>
     </>
