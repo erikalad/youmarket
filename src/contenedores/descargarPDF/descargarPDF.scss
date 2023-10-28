@@ -1,48 +1,47 @@
+/** @format */
+
 @import "./../../index.scss";
 
+.contenedorDescarga {
+  display: flex;
+  flex-direction: column;
+  margin: 0% 30% 0% 30%;
+}
 
-.contenedorDescarga{
+.contenedorPDF {
+  display: flex;
+  flex-direction: column;
+  background-color: $white-color;
+  margin: 3rem;
+  padding: 3rem;
+}
+
+.contenedor-boton-descargar {
+  display: flex;
+  justify-content: flex-end;
+  margin: 2rem 2.8rem 0rem 0rem;
+}
+
+.ant-btn-icon {
+  color: $white-color !important;
+}
+
+.imagenIcono {
+  margin-bottom: 1rem;
+}
+
+.subtitulo-disabled {
+  color: $disabled-color;
+}
+
+.numeroMovimiento {
+  font-weight: 700;
+}
+
+@media (max-width: 1000px) {
+  .contenedorDescarga {
     display: flex;
     flex-direction: column;
-    margin: 0% 30% 0% 30%;
+    margin: 0rem !important;
+  }
 }
-
-
-.contenedorPDF{
-    display: flex;
-    flex-direction: column;
-    background-color: $white-color;
-    margin: 3rem;
-    padding:3rem
-}
-
-.contenedor-boton-descargar{
-    display: flex;
-    justify-content: flex-end;
-    margin:2rem 2.8rem 0rem 0rem
-}
-
-.ant-btn-icon{
-    color:$white-color !important
-}
-
-.imagenIcono{
-    margin-bottom: 1rem;
-}
-
-.subtitulo-disabled{
-    color:$disabled-color
-}
-
-.numeroMovimiento{
-    font-weight: 700;
-}
-
-
-@media (max-width:1000px) {
-    .contenedorDescarga{
-        display: flex;
-        flex-direction: column;
-        margin: 0rem !important
-      }
-    }

@@ -21,7 +21,7 @@
   margin: 0% 30% 0% 30%;
 }
 
-.contenedor-cada-mov{
+.contenedor-cada-mov {
   max-height: 20rem;
   overflow-y: auto;
 }
@@ -36,8 +36,6 @@
   flex-shrink: 0;
 }
 
-
-
 .contenedor-acciones {
   height: 10rem;
 }
@@ -51,15 +49,13 @@
   margin: 0.3rem;
 }
 
-
 .texto-home {
   text-align: flex-start;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  min-width: 100px
-
+  min-width: 100px;
 }
 
 .accion {
@@ -69,10 +65,10 @@
   font-weight: 700;
 }
 
-.ultmov{
-    text-align: start;
-    font-size: 1rem;
-    font-weight: 700; 
+.ultmov {
+  text-align: start;
+  font-size: 1rem;
+  font-weight: 700;
 }
 
 .valor-home {
@@ -138,30 +134,29 @@
 .contenedor-ultimos-mov {
   height: 25rem;
   padding: 1rem;
-
 }
 
-.carta-mov{
-    border-bottom: 1px solid #C4C4C4;
-    display: flex;
-    height: 4.375rem;
-    padding: 0rem 1rem 0rem 1rem;
-    justify-content: space-between;
+.carta-mov {
+  border-bottom: 1px solid #c4c4c4;
+  display: flex;
+  height: 4.375rem;
+  padding: 0rem 1rem 0rem 1rem;
+  justify-content: space-between;
 }
 
-.contenedor-flecha{
-    display: flex;
-    width: 2.5rem;
-    height: 2.5rem;
-    padding: 0.3125rem 0.625rem;
-    justify-content: center;
-    align-items: center;
-    border-radius: 0.625rem;
-    background: #E5E5E5;
-    flex-shrink: 0;
+.contenedor-flecha {
+  display: flex;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: 0.3125rem 0.625rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.625rem;
+  background: #e5e5e5;
+  flex-shrink: 0;
 }
 
-.selectAcciones{
+.selectAcciones {
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -169,29 +164,28 @@
   font-weight: 700;
 }
 
-.contenedor-flecha-saldo{
-    display: flex;
-    justify-content: space-between;
-    max-width: 200px;
-    align-items: center;
-    text-align: center;
-    gap:1rem;
-
+.contenedor-flecha-saldo {
+  display: flex;
+  justify-content: space-between;
+  max-width: 200px;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
 }
 
-.contenedor-importe-fecha{
+.contenedor-importe-fecha {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  max-width: 200px;
+  align-items: center;
+  text-align: center;
+}
+
+@media (max-width: 1000px) {
+  .contenedor-home {
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    max-width: 200px;
-    align-items: center;
-    text-align: center;
-}
-
-@media (max-width:1000px) {
-    .contenedor-home {
-        display: flex;
-        flex-direction: column;
-        margin: 0rem !important
-      }
+    margin: 0rem !important;
+  }
 }

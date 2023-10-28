@@ -1,66 +1,65 @@
 /** @format */
-@import './../../index.scss';
+@import "./../../index.scss";
 
 .contenedor-saldo {
-    display: flex;
-    flex-direction: column;
-    margin-top: 5rem;
-    height: 25rem;
-    flex-shrink: 0;
-    justify-content: center;
-    align-items: center;
-    gap:3rem
+  display: flex;
+  flex-direction: column;
+  margin-top: 5rem;
+  height: 25rem;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  gap: 3rem;
 }
 
-.texto-saldo{
-    color:$color;
-font-family:$font-family-primary;
-font-size: 0.875rem;
-font-style: normal;
-font-weight: 500;
-line-height: normal;
+.texto-saldo {
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 }
 
-.contenedor-saldo-valor{
-    display: flex;
-    flex-direction: column;
-    width: 23rem;
-    align-items: flex-start;
-    margin-bottom: 5rem;
+.contenedor-saldo-valor {
+  display: flex;
+  flex-direction: column;
+  width: 23rem;
+  align-items: flex-start;
+  margin-bottom: 5rem;
 }
 
-.valor{
-    width: 100%;
-    border:none;
-    background-color: $background-color;
-    display: flex;
-    align-items: center;
-    padding:3rem 3rem 3rem 3rem;
-    color:$color;
-    font-family:$font-family-primary;
-font-size: 2rem;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
-text-align: center;
+.valor {
+  width: 100%;
+  border: none;
+  background-color: $background-color;
+  display: flex;
+  align-items: center;
+  padding: 3rem 3rem 3rem 3rem;
+  color: $color;
+  font-family: $font-family-primary;
+  font-size: 2rem;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  text-align: center;
 }
 
-.ant-input-number-input{
-    text-align: center !important;
+.ant-input-number-input {
+  text-align: center !important;
 }
 
 .ant-modal-confirm-btns .ant-btn-primary {
-    background-color:$primary-color; 
-    border-color: $primary-color; 
-  }
-  
-  
-  .ant-modal-confirm-btns .ant-btn-primary:hover {
-    background-color: $primary-color; 
-    border-color:$primary-color; 
-  }
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
 
-  .link{
-    text-decoration: none;
-    color:white !important
-  }
+.ant-modal-confirm-btns .ant-btn-primary:hover {
+  background-color: $primary-color;
+  border-color: $primary-color;
+}
+
+.link {
+  text-decoration: none;
+  color: white !important;
+}

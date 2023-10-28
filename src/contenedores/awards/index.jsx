@@ -5,37 +5,40 @@ import user from "./../../imagenes/user-plus-solid 2.svg";
 import up from "./../../imagenes/upload-solid 1.svg";
 import lupa from "./../../imagenes/magnifying-glass-solid 1.svg";
 import { useDispatch, useSelector } from "react-redux";
-import { agregarUsuarios, cargarProductos, loadingAction, usuarioSeleccionado } from "./../../redux/actions";
+import {
+  agregarUsuarios,
+  cargarProductos,
+  loadingAction,
+  usuarioSeleccionado,
+} from "./../../redux/actions";
 import "./awards.scss";
 import { Radio, Modal, Empty } from "antd";
 import { Link } from "react-router-dom";
 import FormUsuario from "../../componentes/Formulario";
-import * as XLSX from 'xlsx';
-import { Button } from 'antd';
-
+import * as XLSX from "xlsx";
+import { Button } from "antd";
 
 export default function Awards() {
   const usuarios = useSelector((state) => state.usuarios);
-  const loading = useSelector(state=>state.loading)
+  const loading = useSelector((state) => state.loading);
   const [modalVisible, setModalVisible] = useState(false);
   const [usuariosSeleccionado, setUsuariosSeleccionado] = useState("");
   const [busqueda, setBusqueda] = useState("");
   const [usuariosFiltrados, setUsuariosFiltrados] = useState([]);
   const [modalAgregarVisible, setModalAgregarVisible] = useState(false);
   const [modalSubirArchivo, setmodalSubirArchivo] = useState(false);
-  const [usuariosNuevos, setUsuariosNuevos] = useState([])
+  const [usuariosNuevos, setUsuariosNuevos] = useState([]);
 
   const dispatch = useDispatch();
 
   const handleAgregarCuenta = () => {
     setModalAgregarVisible(true);
-    dispatch(loadingAction())
+    dispatch(loadingAction());
   };
 
   const handleSubirArchivo = () => {
     setmodalSubirArchivo(true);
   };
-
 
   useEffect(() => {
     dispatch(cargarProductos());
@@ -54,10 +57,9 @@ export default function Awards() {
     setUsuariosFiltrados(filtrados);
   }, [busqueda, usuarios]);
 
-
   function downloadExcel() {
     var wb = XLSX.utils.book_new();
-    var headers = [['Nombre Empleado', 'Email Empleado']];
+    var headers = [["Nombre Empleado", "Email Empleado"]];
     var ws = XLSX.utils.aoa_to_sheet(headers);
     XLSX.utils.book_append_sheet(wb, ws, "Empleados");
     XLSX.writeFile(wb, "empleados.xlsx");
@@ -66,34 +68,30 @@ export default function Awards() {
   function handleFileUpload(event) {
     const file = event.target.files[0];
     const reader = new FileReader();
-    reader.onload = function(e) {
+    reader.onload = function (e) {
       const data = new Uint8Array(e.target.result);
-      const workbook = XLSX.read(data, { type: 'array' });
-  
+      const workbook = XLSX.read(data, { type: "array" });
+
       const worksheet = workbook.Sheets[workbook.SheetNames[0]];
       const jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1 });
-  
+
       const usuarios = jsonData.slice(1).map((row) => {
         return {
-          icono: row[0]?.substring(0, 2).toUpperCase() || '',
-          nombre: row[0] || '',
-          email: row[1] || '',
+          icono: row[0]?.substring(0, 2).toUpperCase() || "",
+          nombre: row[0] || "",
+          email: row[1] || "",
         };
       });
-  
-      console.log(usuarios);
+
       setUsuariosNuevos(usuarios);
     };
     reader.readAsArrayBuffer(file);
   }
-  
-
 
   const cargarUsuariosNuevos = () => {
-    dispatch(agregarUsuarios(usuariosNuevos))
-    setmodalSubirArchivo(false)
-  }
-
+    dispatch(agregarUsuarios(usuariosNuevos));
+    setmodalSubirArchivo(false);
+  };
 
   return (
     <div className="contenedor-awards">
@@ -101,13 +99,23 @@ export default function Awards() {
         <div className="texto-awards">Nuevas cuentas</div>
         <div className="list-icons">
           <div className="caja-acciones">
-            <img className="icono-caja" src={user} alt="user"  onClick={handleAgregarCuenta}/>
+            <img
+              className="icono-caja"
+              src={user}
+              alt="user"
+              onClick={handleAgregarCuenta}
+            />
             <div className="contenedor-label">
               <div className="label-caja">Agregar cuenta</div>
             </div>
           </div>
           <div className="caja-acciones">
-            <img className="icono-caja" src={up} alt="up" onClick={handleSubirArchivo}/>
+            <img
+              className="icono-caja"
+              src={up}
+              alt="up"
+              onClick={handleSubirArchivo}
+            />
             <div className="contenedor-label">
               <div className="label-caja">Subir archivo</div>
             </div>
@@ -149,7 +157,7 @@ export default function Awards() {
               ))
             ) : (
               <div className="empty">
-              <Empty description='No se encontraron cuentas' />
+                <Empty description="No se encontraron cuentas" />
               </div>
             )}
           </div>
@@ -194,26 +202,30 @@ export default function Awards() {
           okText="OK"
           cancelText="Cancelar"
           onOk={() => setModalAgregarVisible(false)}
-          onCancel={() => setModalAgregarVisible(false)}
-        >
-      <FormUsuario/>
-      </Modal>
+          onCancel={() => setModalAgregarVisible(false)}>
+          <FormUsuario />
+        </Modal>
 
-      <Modal
+        <Modal
           title="Subir Archivo"
           open={modalSubirArchivo}
           okText="Subir"
           cancelText="Cancelar"
-           onOk={() => cargarUsuariosNuevos()}
-          onCancel={() => setmodalSubirArchivo(false)}
-        >
+          onOk={() => cargarUsuariosNuevos()}
+          onCancel={() => setmodalSubirArchivo(false)}>
           <div className="contenedorModalSubirArchivo">
-          <div>El excel tiene que tener dos columas, la primera es Nombre de Empleado y la segunda es Correo Electrónico del Empleado</div>
-          <Button  onClick={downloadExcel}>Descargar ejemplo de Excel</Button>
-          <input type="file" onChange={handleFileUpload} className="inputCargarArchivo"/>
+            <div>
+              El excel tiene que tener dos columas, la primera es Nombre de
+              Empleado y la segunda es Correo Electrónico del Empleado
+            </div>
+            <Button onClick={downloadExcel}>Descargar ejemplo de Excel</Button>
+            <input
+              type="file"
+              onChange={handleFileUpload}
+              className="inputCargarArchivo"
+            />
           </div>
-      </Modal>
-
+        </Modal>
       </div>
     </div>
   );

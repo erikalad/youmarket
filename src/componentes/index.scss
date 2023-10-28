@@ -1,32 +1,31 @@
+/** @format */
 
-@import './../index.scss';
+@import "./../index.scss";
 
-.navbar{
-    background-color: $primary-color !important;
-    display: flex;
-    height: 5rem;
-    padding-top: 30px;
-    justify-content: center;
-    align-items: center;
-    padding: 0% 30% 0% 30%;
+.navbar {
+  background-color: $primary-color !important;
+  display: flex;
+  height: 5rem;
+  padding-top: 30px;
+  justify-content: center;
+  align-items: center;
+  padding: 0% 30% 0% 30%;
 }
 
-.img-back{
-    min-width: 1.5rem;
+.img-back {
+  min-width: 1.5rem;
 }
 
-
-.navbar-text{
-    color:$white-color !important;
-    height: 3.125rem;
-    display: flex;
-    align-items: center;
+.navbar-text {
+  color: $white-color !important;
+  height: 3.125rem;
+  display: flex;
+  align-items: center;
 }
 
-
-@media (max-width:1000px) {
-    .navbar {
-        padding: 0rem !important;
-        gap:4rem;
-      }
+@media (max-width: 1000px) {
+  .navbar {
+    padding: 0rem !important;
+    gap: 4rem;
+  }
 }

@@ -9,7 +9,7 @@ import { correoAuth } from "../../redux/actions";
 export default function Auth() {
   const [correoElectronico, setCorreoElectronico] = useState("");
   const [error, setError] = useState("");
-  const dispatch= useDispatch()
+  const dispatch = useDispatch();
 
   const sendFeedback = (serviceID, templateId, variables) => {
     window.emailjs
@@ -17,12 +17,7 @@ export default function Auth() {
       .then((res) => {
         console.log("Email successfully sent!");
       })
-      .catch((err) =>
-        console.error(
-          "Ocurrió un error:",
-          err
-        )
-      );
+      .catch((err) => console.error("Ocurrió un error:", err));
   };
 
   const iniciarSesion = () => {
@@ -32,7 +27,7 @@ export default function Auth() {
     sendFeedback(serviceID, templateId, {
       reply_to: correoElectronico,
     });
-    dispatch(correoAuth(correoElectronico))
+    dispatch(correoAuth(correoElectronico));
   };
 
   const handleInputChange = (e) => {

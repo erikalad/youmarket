@@ -13,9 +13,9 @@ import { useSelector } from "react-redux";
 import { Select } from "antd";
 
 export default function Home() {
-  const monto = useSelector(state=> state.monto)
-  const movimientos = useSelector(state=>state.movimientos)
-  const accion = useSelector(state=>state.accion)
+  const monto = useSelector((state) => state.monto);
+  const movimientos = useSelector((state) => state.movimientos);
+  const accion = useSelector((state) => state.accion);
   return (
     <div className="contenedor-home">
       <div className="contenedor-datos">
@@ -25,16 +25,13 @@ export default function Home() {
         </div>
 
         <div className="mi-saldo">
-      
           <div className="texto-home">Mi acción: </div>
           <Select
-      defaultValue={accion}
-      className="selectAcciones valor-home2"
-      bordered={false}
-      options={[
-        
-      ]}
-    />
+            defaultValue={accion}
+            className="selectAcciones valor-home2"
+            bordered={false}
+            options={[]}
+          />
         </div>
       </div>
 
@@ -50,55 +47,64 @@ export default function Home() {
             </div>
           </Link>
           <Link to="/awards">
-          <div className="caja-acciones">
-            <img className="icono-caja" src={gift} alt="enviar-premio" />
-            <div className="contenedor-label">
-              <div className="label-caja">Enviar Premio</div>
+            <div className="caja-acciones">
+              <img className="icono-caja" src={gift} alt="enviar-premio" />
+              <div className="contenedor-label">
+                <div className="label-caja">Enviar Premio</div>
+              </div>
             </div>
-          </div>
           </Link>
           <Link to="/movimientos">
-          <div className="caja-acciones">
-            <img className="icono-caja" src={clock} alt="movimientos" />
-            <div className="contenedor-label">
-              <div className="label-caja">Movimientos</div>
+            <div className="caja-acciones">
+              <img className="icono-caja" src={clock} alt="movimientos" />
+              <div className="contenedor-label">
+                <div className="label-caja">Movimientos</div>
+              </div>
             </div>
-          </div>
           </Link>
           <Link to="/ajustes">
-          <div className="caja-acciones">
-            <img className="icono-caja" src={setting} alt="ajustes" />
-            <div className="contenedor-label">
-              <div className="label-caja">Ajustes</div>
+            <div className="caja-acciones">
+              <img className="icono-caja" src={setting} alt="ajustes" />
+              <div className="contenedor-label">
+                <div className="label-caja">Ajustes</div>
+              </div>
             </div>
-          </div>
           </Link>
         </div>
       </div>
 
       <div>
-      <div className="contenedor-ultimos-mov">
-        <div className="ultmov">Últimos movimientos</div>
-        <div className="contenedor-cada-mov2">
-          {movimientos.slice(0,5).map((movimiento, index) => (
-            <div className="carta-mov" key={index}>
-              <div className="contenedor-flecha-saldo">
-                <div className="contenedor-flecha">
-                  <img src={movimiento.flecha === "flechaAbajo" ? flechaAbajo : flechaArriba } alt={movimiento.tipo} />
+        <div className="contenedor-ultimos-mov">
+          <div className="ultmov">Últimos movimientos</div>
+          <div className="contenedor-cada-mov2">
+            {movimientos.slice(0, 5).map((movimiento, index) => (
+              <div className="carta-mov" key={index}>
+                <div className="contenedor-flecha-saldo">
+                  <div className="contenedor-flecha">
+                    <img
+                      src={
+                        movimiento.flecha === "flechaAbajo"
+                          ? flechaAbajo
+                          : flechaArriba
+                      }
+                      alt={movimiento.tipo}
+                    />
+                  </div>
+                  <div>{movimiento.tipo}</div>
                 </div>
-                <div>{movimiento.tipo}</div>
-              </div>
 
-              <div className="contenedor-importe-fecha">
-                <div>{movimiento.flecha === "flechaArriba" ? '+' : '-'}${movimiento.importe},00</div>
-                <div>{movimiento.fecha}</div>
-
+                <div className="contenedor-importe-fecha">
+                  <div>
+                    {movimiento.flecha === "flechaArriba" ? "+" : "-"}$
+                    {movimiento.importe},00
+                  </div>
+                  <div>{movimiento.fecha}</div>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }

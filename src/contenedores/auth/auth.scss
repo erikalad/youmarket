@@ -37,10 +37,10 @@
   background-color: $background-color;
 }
 
-@media (max-width:1000px) {
+@media (max-width: 1000px) {
   .contenedor-auth {
-      display: flex;
-      flex-direction: column;
-      margin: 0rem !important
-    }
+    display: flex;
+    flex-direction: column;
+    margin: 0rem !important;
+  }
 }
