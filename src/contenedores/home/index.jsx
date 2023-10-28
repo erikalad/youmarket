@@ -21,7 +21,7 @@ export default function Home() {
       <div className="contenedor-datos">
         <div className="mi-saldo">
           <div className="texto-home">Mi Saldo:</div>
-          <div className="valor-home">${monto},00</div>
+          <div className="valor-home">${monto.toFixed(0)},00</div>
         </div>
 
         <div className="mi-saldo">
