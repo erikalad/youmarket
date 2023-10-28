@@ -3,11 +3,13 @@
 import React, { useState } from "react";
 import "./verification.scss";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 export default function Verification() {
   const [codes, setCodes] = useState(["", "", "", "", "", ""]);
   const [showContinueButton, setShowContinueButton] = useState(false);
   const [error, setError] = useState(false);
+  const email = useSelector((state)=>state.email)
 
   const handleChange = (e, index) => {
     const value = e.target.value;
@@ -33,7 +35,7 @@ export default function Verification() {
   return (
     <div className="contenedor-verification">
       <div className="texto">Te acabamos de enviar un correo a </div>
-      <div className="mail">test@test.com.ar</div>
+      <div className="mail">{email}</div>
       <div className="texto">Ingresa el código de 6 dígitos recibido</div>
       <div className="contenedor-codigo">
         {codes.map((code, index) => (

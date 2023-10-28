@@ -25,7 +25,7 @@ export default function Nav() {
       targetRoute = "/home";
       break;
     case "/verification":
-      textoSpan = { accion };
+      textoSpan = <div>{accion.nombre}</div>;
       targetRoute = "/";
       break;
     case "/acredit":
