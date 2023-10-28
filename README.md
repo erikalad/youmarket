@@ -1,12 +1,12 @@
 <!-- @format -->
 
-# YouMarket Challenge
+# 📋 YouMarket Challenge
 
 Bienvenido al proyecto YouMarket Challenge! Este proyecto consiste en una aplicación que proporciona funcionalidades de autenticación, gestión de saldo, envío de premios y más para la plataforma YouMarket.
 
 Puedes acceder a la aplicación [aquí](https://youmarket.vercel.app/).
 
-## Funcionalidades
+## 🚀 Funcionalidades
 
 - **Autenticación**:
   - Ingresa tu correo electrónico y recibirás un código de verificación para acceder.
@@ -29,7 +29,7 @@ Puedes acceder a la aplicación [aquí](https://youmarket.vercel.app/).
 - **Ajustes**:
   - Visualiza la información de la empresa, el correo electrónico y las tarjetas asociadas para cargar crédito.
 
-## Tecnologías Utilizadas
+## 🛠️ Tecnologías Utilizadas
 
 - React
 - Redux
@@ -40,4 +40,4 @@ Puedes acceder a la aplicación [aquí](https://youmarket.vercel.app/).
 
 ---
 
-¡Hecho con ♥, Erika Ladner!
+¡Hecho con ❤️, Erika Ladner!
