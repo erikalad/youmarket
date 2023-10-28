@@ -23,7 +23,7 @@ export default function Movimientos() {
 
 
   return (
-    <div>
+    <div className='contenedorMovimientos'>
      
       <div className="contenedor-ultimos-mov">
 

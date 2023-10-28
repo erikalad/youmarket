@@ -7,3 +7,17 @@
     text-align: center;
     color: $primary-color
 }
+
+.contenedorMovimientos{
+    display: flex;
+    flex-direction: column;
+    margin: 0% 30% 0% 30%;
+}
+
+@media (max-width:1000px) {
+    .contenedorMovimientos {
+        display: flex;
+        flex-direction: column;
+        margin: 0rem !important
+      }
+}

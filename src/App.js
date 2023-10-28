@@ -10,6 +10,7 @@ import Awards from "./contenedores/awards";
 import Products from "./contenedores/products";
 import Movimientos from "./contenedores/movimientos";
 import DescargarPDF from "./contenedores/descargarPDF";
+import Ajustes from "./contenedores/ajustes";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
         <Route path="/products" element={<Products />} />
         <Route path="/movimientos" element={<Movimientos />} />
         <Route path="/comprobante" element={<DescargarPDF />} />
+        <Route path="/ajustes" element={<Ajustes />} />
       </Routes>
     </div>
   );

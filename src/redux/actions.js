@@ -9,7 +9,6 @@ export const cargarSaldo = (monto) => {
 };
 
 export const agregarUsuario = (usuario) => {
-  console.log(usuario)
   return {
     type: 'AGREGAR_USUARIO',
     payload: usuario
@@ -49,6 +48,14 @@ export const movimientoNuevo = (movimiento) => {
     payload: movimiento
   }
 }
+
+export const correoAuth = (email) => {
+  return{
+    type: "AUTH",
+    payload: email
+  }
+}
+
 
 
 export const cargarProductos = () => {

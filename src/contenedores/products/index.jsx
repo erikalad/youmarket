@@ -86,7 +86,7 @@ export default function Products() {
   }
 
   return (
-    <div>
+    <div className="contenedorProductos">
        <div className="produtos-titulo">Productos</div>
   
     <Select

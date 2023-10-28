@@ -36,6 +36,8 @@
   flex-shrink: 0;
 }
 
+
+
 .contenedor-acciones {
   height: 10rem;
 }
@@ -49,12 +51,15 @@
   margin: 0.3rem;
 }
 
+
 .texto-home {
-  text-align: center;
+  text-align: flex-start;
   font-size: 1rem;
   font-style: normal;
   font-weight: 400;
   line-height: normal;
+  min-width: 100px
+
 }
 
 .accion {
@@ -156,18 +161,29 @@
     flex-shrink: 0;
 }
 
+.selectAcciones{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  font-family: $font-family-primary !important;
+  font-weight: 700;
+}
+
 .contenedor-flecha-saldo{
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
+    max-width: 200px;
     align-items: center;
     text-align: center;
-    gap:1rem
+    gap:1rem;
+
 }
 
 .contenedor-importe-fecha{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
+    max-width: 200px;
     align-items: center;
     text-align: center;
 }

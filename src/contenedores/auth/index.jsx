@@ -3,10 +3,13 @@
 import React, { useState } from "react";
 import "./auth.scss";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { correoAuth } from "../../redux/actions";
 
 export default function Auth() {
   const [correoElectronico, setCorreoElectronico] = useState("");
   const [error, setError] = useState("");
+  const dispatch= useDispatch()
 
   const sendFeedback = (serviceID, templateId, variables) => {
     window.emailjs
@@ -16,7 +19,7 @@ export default function Auth() {
       })
       .catch((err) =>
         console.error(
-          "There has been an error.  Here some thoughts on the error that occured:",
+          "Ocurrió un error:",
           err
         )
       );
@@ -26,11 +29,12 @@ export default function Auth() {
     const templateId = "template_tyraw1h";
     const serviceID = "service_7evxm4j";
 
-    // Usamos el correoElectronico del estado
     sendFeedback(serviceID, templateId, {
       reply_to: correoElectronico,
     });
+    dispatch(correoAuth(correoElectronico))
   };
+
   const handleInputChange = (e) => {
     const inputValue = e.target.value;
 
@@ -46,7 +50,6 @@ export default function Auth() {
 
     setCorreoElectronico(inputValue);
 
-    // Verificar si el inputValue está vacío y resetear el mensaje de error
     if (inputValue === "") {
       setError("");
     }

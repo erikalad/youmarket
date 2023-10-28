@@ -10,6 +10,7 @@ import {GrDocumentDownload} from 'react-icons/gr'
 
 export default function DescargarPDF() {
     const movimiento = useSelector(state=>state.movimiento)
+    const accion = useSelector(state=>state.accion)
     const codigoTransaccion = Math.floor(Math.random() * 1e15);
 
     const fechaObjeto = parse(`${movimiento.fecha}/2023`, 'dd/MM/yyyy', new Date());
@@ -61,7 +62,7 @@ export default function DescargarPDF() {
   items={[
     {
       title: 'De',
-      description: 'Cuenta de la empresa',
+      description: accion,
     },
     {
         title: 'Para',

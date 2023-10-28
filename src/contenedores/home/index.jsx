@@ -2,7 +2,6 @@
 
 import React from "react";
 import "./home.scss";
-import flecha from "./../../imagenes/angle-left-solid 2.svg";
 import setting from "./../../imagenes/gear-solid 2.svg";
 import tranfer from "./../../imagenes/money-bill-transfer-solid 1.svg";
 import clock from "./../../imagenes/clock-rotate-left-solid 1.svg";
@@ -11,22 +10,31 @@ import flechaArriba from "./../../imagenes/arrow-up-solid 1.svg";
 import flechaAbajo from "./../../imagenes/arrow-down-solid 1.svg";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { Select } from "antd";
 
 export default function Home() {
   const monto = useSelector(state=> state.monto)
   const movimientos = useSelector(state=>state.movimientos)
+  const accion = useSelector(state=>state.accion)
   return (
     <div className="contenedor-home">
       <div className="contenedor-datos">
         <div className="mi-saldo">
-          <div className="texto-home">Mi Saldo</div>
+          <div className="texto-home">Mi Saldo:</div>
           <div className="valor-home">${monto},00</div>
         </div>
 
         <div className="mi-saldo">
+      
           <div className="texto-home">Mi acción: </div>
-          <div className="valor-home2">Nombre de acción</div>
-          <img src={flecha} className="valor-home2" alt="arrow" />
+          <Select
+      defaultValue={accion}
+      className="selectAcciones valor-home2"
+      bordered={false}
+      options={[
+        
+      ]}
+    />
         </div>
       </div>
 
@@ -57,12 +65,14 @@ export default function Home() {
             </div>
           </div>
           </Link>
+          <Link to="/ajustes">
           <div className="caja-acciones">
             <img className="icono-caja" src={setting} alt="ajustes" />
             <div className="contenedor-label">
               <div className="label-caja">Ajustes</div>
             </div>
           </div>
+          </Link>
         </div>
       </div>
 

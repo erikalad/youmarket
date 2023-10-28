@@ -3,16 +3,20 @@ import { useLocation } from 'react-router-dom';
 import './index.scss';
 import back from './../imagenes/arrow-back.svg';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 
 export default function Nav() {
   const location = useLocation();
+  const email = useSelector(state=>state.email)
+  const accion = useSelector(state=>state.accion)
+
 
   let textoSpan;
   let targetRoute;
 
   switch (location.pathname) {
     case '/home':
-      textoSpan = '¡Hola Test!';
+      textoSpan = `¡Hola ${email}!`;
       targetRoute = '/';
       break;
     case '/awards':
@@ -20,7 +24,7 @@ export default function Nav() {
       targetRoute = '/home';
       break;
     case '/verification':
-      textoSpan = 'Nombre de la Acción';
+      textoSpan = {accion};
       targetRoute = '/';
       break;
     case '/acredit':
@@ -38,6 +42,10 @@ export default function Nav() {
           case '/comprobante':
             textoSpan = 'Tu comprobante';
             targetRoute = '/movimientos';
+            break;
+            case '/ajustes':
+            textoSpan = '';
+            targetRoute = '/home';
             break;
     default:
       textoSpan = '';
